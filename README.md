@@ -36,6 +36,9 @@ This project allows website owners to capture, process, and analyze user interac
    - Can be extended to support analytics pipelines or real-time dashboards.
 
 ---
+### main branch for releases, develop branch for development
+
+---
 
 ## Example Event
 
