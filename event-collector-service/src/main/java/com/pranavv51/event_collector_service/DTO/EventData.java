@@ -5,13 +5,13 @@ import java.util.Map;
 
 public class EventData {
 
-    private List<Map<String,String>> eventInfo;
+    private List<Map<String,Object>> eventInfo;
 
-    public EventData(List<Map<String, String>> eventInfo) {
+    public EventData(List<Map<String, Object>> eventInfo) {
         this.eventInfo = eventInfo;
     }
 
-    public List<Map<String, String>> getEventInfo(){
+    public List<Map<String, Object>> getEventInfo(){
         return this.eventInfo;
     }
 }
