@@ -11,12 +11,10 @@ public class EventRequest {
     private String ipOrDns;
     private String userAgent;
 
-    public EventRequest(long websiteId,String eventType, EventData eventData, Instant timeStamp, String ipOrDns, String userAgent) {
+    public EventRequest(long websiteId,String eventType, EventData eventData, Instant timeStamp) {
         this.eventType = eventType;
         this.eventData = eventData;
         this.timeStamp = timeStamp;
-        this.ipOrDns = ipOrDns;
-        this.userAgent = userAgent;
         this.websiteId = websiteId;
     }
 
@@ -42,5 +40,13 @@ public class EventRequest {
 
     public long getWebsiteId(){
         return this.websiteId;
+    }
+
+    public void setIpOrDns(String ip){
+        this.ipOrDns=ip;
+    }
+
+    public void setUserAgent(String userAgent){
+        this.userAgent=userAgent;
     }
 }

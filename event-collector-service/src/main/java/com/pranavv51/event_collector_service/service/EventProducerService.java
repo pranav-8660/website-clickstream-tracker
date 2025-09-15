@@ -20,9 +20,8 @@ public class EventProducerService {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void send(EventRequest event , String userAgent){
+    private Map<String,Object> setKafkaStringObjectMap(EventRequest event){
         Map<String,Object> kafkaStringObjectMap = new HashMap<>();
-
         kafkaStringObjectMap.put("websiteId",event.getWebsiteId());
         kafkaStringObjectMap.put("eventType",event.getEventType());
         kafkaStringObjectMap.put("eventData",event.getEventData());
@@ -30,8 +29,11 @@ public class EventProducerService {
         kafkaStringObjectMap.put("ipOrDns",event.getIpOrDns());
         kafkaStringObjectMap.put("userAgent",event.getUserAgent());
 
-        kafkaTemplate.send(topic,String.valueOf(event.getWebsiteId()),kafkaStringObjectMap);
+        return kafkaStringObjectMap;
+    }
 
+    public void send(EventRequest event){
+        kafkaTemplate.send(topic,String.valueOf(event.getWebsiteId()),setKafkaStringObjectMap(event));
     }
 
 }
