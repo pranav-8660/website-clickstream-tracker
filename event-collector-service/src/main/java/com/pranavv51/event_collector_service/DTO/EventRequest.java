@@ -4,18 +4,20 @@ import java.time.Instant;
 
 public class EventRequest {
 
+    private long websiteId;
     private String eventType;
     private EventData eventData;
     private Instant timeStamp;
     private String ipOrDns;
     private String userAgent;
 
-    public EventRequest(String eventType, EventData eventData, Instant timeStamp, String ipOrDns, String userAgent) {
+    public EventRequest(long websiteId,String eventType, EventData eventData, Instant timeStamp, String ipOrDns, String userAgent) {
         this.eventType = eventType;
         this.eventData = eventData;
         this.timeStamp = timeStamp;
         this.ipOrDns = ipOrDns;
         this.userAgent = userAgent;
+        this.websiteId = websiteId;
     }
 
     public String getEventType() {
@@ -36,5 +38,9 @@ public class EventRequest {
 
     public String getUserAgent() {
         return userAgent;
+    }
+
+    public long getWebsiteId(){
+        return this.websiteId;
     }
 }
