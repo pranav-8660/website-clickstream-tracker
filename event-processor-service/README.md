@@ -1,0 +1,1 @@
+#### Issues are raised to solve the problem. Trying to fix/solve the issues one by one. The processing of events in the processed-events topic is highly chained. We shall complete all these points to ensure proper processing of clickstream-events.
