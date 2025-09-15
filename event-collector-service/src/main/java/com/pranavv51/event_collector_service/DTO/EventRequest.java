@@ -11,7 +11,7 @@ public class EventRequest {
     private String ipOrDns;
     private String userAgent;
 
-    public EventRequest(long websiteId,String eventType, EventData eventData, Instant timeStamp) {
+    public EventRequest(long websiteId,String eventType, EventData eventData) {
         this.eventType = eventType;
         this.eventData = eventData;
         this.timeStamp = timeStamp;
@@ -48,5 +48,9 @@ public class EventRequest {
 
     public void setUserAgent(String userAgent){
         this.userAgent=userAgent;
+    }
+
+    public void setTimeStamp(Instant timeStamp){
+        this.timeStamp=timeStamp;
     }
 }

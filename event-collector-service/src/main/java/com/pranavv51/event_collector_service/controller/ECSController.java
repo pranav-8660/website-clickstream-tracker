@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.Instant;
 
 
 @RestController
@@ -24,6 +25,7 @@ public class ECSController {
     public void readIncomingEvents(@Valid  @RequestBody EventRequest inputEventRequest, HttpServletRequest httpRequest){
         inputEventRequest.setIpOrDns(httpRequest.getRemoteAddr());
         inputEventRequest.setUserAgent(httpRequest.getHeader("User-Agent"));
+        inputEventRequest.setTimeStamp(Instant.now());
         eventProducerService.send(inputEventRequest);
     }
 
