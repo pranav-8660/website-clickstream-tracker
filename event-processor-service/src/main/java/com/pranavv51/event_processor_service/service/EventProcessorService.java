@@ -29,7 +29,7 @@ public class EventProcessorService {
         return eventMap;
     }
 
-    
+
 
     private HashMap<String,Object> allFieldsPresent(HashMap<String,Object> rawEvent){
 
@@ -72,7 +72,7 @@ public class EventProcessorService {
         eventMap = allFieldsPresent(eventMap);
         if(!areAllFieldsPresent) logger.info("Null values present for"+rawEvents+", hence some default values are being added to the raw event.");
 
-        //enrichment of data.
+        //enrichment of data. pending with GeoIP, UserAgent parsing, session metadata, processedAt timestamp
 
 
 
