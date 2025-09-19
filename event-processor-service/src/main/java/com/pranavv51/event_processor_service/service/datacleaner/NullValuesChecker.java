@@ -41,6 +41,10 @@ public class NullValuesChecker {
             rawEvent.put("userAgent", new UserAgent("Chrome","Windows 11"));
             areAllFieldsPresent=false;
         }
+        if(rawEvent.get("endPoint")==null){
+            rawEvent.put("endPoint","/home");
+            areAllFieldsPresent=false;
+        }
 
         return rawEvent;
     }
