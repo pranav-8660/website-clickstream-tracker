@@ -12,7 +12,6 @@ import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
-record UserAgent(String browser,String os){ }
 
 @Service
 public class EventProcessorService {
@@ -61,7 +60,6 @@ public class EventProcessorService {
         Location locationBasedOnIp = classifyBasedOnGeoIP.getTheGeoLocationOfIp(eventMap.get("ipOrDns").toString());
 
         eventMap.put("Location",locationBasedOnIp);
-
 
 
 
