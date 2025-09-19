@@ -15,7 +15,6 @@ public class EventRequest {
     public EventRequest(long websiteId,String eventType, EventData eventData,String endPoint) {
         this.eventType = eventType;
         this.eventData = eventData;
-        this.timeStamp = timeStamp;
         this.websiteId = websiteId;
         this.endPoint = endPoint;
     }
