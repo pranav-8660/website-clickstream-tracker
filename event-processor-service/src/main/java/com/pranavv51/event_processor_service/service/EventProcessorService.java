@@ -1,5 +1,7 @@
 package com.pranavv51.event_processor_service.service;
 
+import com.pranavv51.event_processor_service.DTO.Location;
+import com.pranavv51.event_processor_service.service.datacleaner.ClassifyBasedOnGeoIP;
 import com.pranavv51.event_processor_service.service.datacleaner.NullValuesChecker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +21,13 @@ public class EventProcessorService {
     @Autowired
     private NullValuesChecker nullValuesChecker;
 
+
+    @Autowired
+    private ClassifyBasedOnGeoIP classifyBasedOnGeoIP;
+
     private Logger logger = LoggerFactory.getLogger(EventProcessorService.class);
+
+    private Location location;
 
 
     private HashMap<String,Object> getHashMapOfEvents(Map<String,Object> rawEvent){
@@ -49,7 +57,10 @@ public class EventProcessorService {
         //processedAt timestamp->
         eventMap.put("processedAt",Instant.now());
 
+        // classify based on location
+        Location locationBasedOnIp = classifyBasedOnGeoIP.getTheGeoLocationOfIp(eventMap.get("ipOrDns").toString());
 
+        eventMap.put("Location",locationBasedOnIp);
 
 
 
