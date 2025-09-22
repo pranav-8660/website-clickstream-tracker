@@ -21,8 +21,6 @@ public class ClassifyBasedOnGeoIP {
 
     private Location queryMaxMindForGeoClassificationOfIP(String ip) {
 
-
-
         Location locationFromIp;
 
         try {
