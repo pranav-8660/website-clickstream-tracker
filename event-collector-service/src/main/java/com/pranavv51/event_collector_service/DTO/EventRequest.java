@@ -10,12 +10,13 @@ public class EventRequest {
     private Instant timeStamp;
     private String ipOrDns;
     private String userAgent;
+    private String endPoint;
 
-    public EventRequest(long websiteId,String eventType, EventData eventData) {
+    public EventRequest(long websiteId,String eventType, EventData eventData,String endPoint) {
         this.eventType = eventType;
         this.eventData = eventData;
-        this.timeStamp = timeStamp;
         this.websiteId = websiteId;
+        this.endPoint = endPoint;
     }
 
     public String getEventType() {
@@ -52,5 +53,9 @@ public class EventRequest {
 
     public void setTimeStamp(Instant timeStamp){
         this.timeStamp=timeStamp;
+    }
+
+    public String getEndPoint(){
+        return this.endPoint;
     }
 }

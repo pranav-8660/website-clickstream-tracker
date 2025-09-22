@@ -2,3 +2,4 @@
 .idea/
 *.iml
 out/
+GeoLite2-City.mmdb

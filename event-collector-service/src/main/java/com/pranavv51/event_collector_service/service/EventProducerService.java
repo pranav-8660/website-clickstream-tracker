@@ -28,6 +28,7 @@ public class EventProducerService {
         kafkaStringObjectMap.put("timeStamp",event.getTimeStamp());
         kafkaStringObjectMap.put("ipOrDns",event.getIpOrDns());
         kafkaStringObjectMap.put("userAgent",event.getUserAgent());
+        kafkaStringObjectMap.put("endPoint",event.getEndPoint());
 
         return kafkaStringObjectMap;
     }
