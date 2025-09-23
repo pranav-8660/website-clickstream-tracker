@@ -38,7 +38,7 @@ public class NullValuesChecker {
             areAllFieldsPresent=false;
         }
         if(rawEvent.get("userAgent")==null){
-            rawEvent.put("userAgent", new UserAgent("Chrome","Windows 11"));
+            rawEvent.put("userAgent", new UserAgent("Unknown","Unknown"));
             areAllFieldsPresent=false;
         }
         if(rawEvent.get("endPoint")==null){
