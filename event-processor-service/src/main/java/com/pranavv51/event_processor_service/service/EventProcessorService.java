@@ -20,14 +20,12 @@ public class EventProcessorService {
     @Autowired
     private NullValuesChecker nullValuesChecker;
 
-
     @Autowired
     private ClassifyBasedOnGeoIP classifyBasedOnGeoIP;
 
     private Logger logger = LoggerFactory.getLogger(EventProcessorService.class);
 
     private Location location;
-
 
     private HashMap<String,Object> getHashMapOfEvents(Map<String,Object> rawEvent){
         HashMap<String,Object> eventMap = new HashMap<>();
@@ -38,10 +36,9 @@ public class EventProcessorService {
         eventMap.put("ipOrDns",rawEvent.get("ipOrDns"));
         eventMap.put("userAgent",rawEvent.get("userAgent"));
         eventMap.put("endPoint",rawEvent.get("endPoint"));
+        eventMap.put("sessionMetaData",rawEvent.get("sessionMetaData"));
         return eventMap;
     }
-
-
 
     public Map<String,Object> processEventsRawToEnriched(Map<String,Object> rawEvents){
         // (TODO : process all the events)
