@@ -36,6 +36,7 @@ public class EventProcessorService {
         eventMap.put("ipOrDns",rawEvent.get("ipOrDns"));
         eventMap.put("userAgent",rawEvent.get("userAgent"));
         eventMap.put("endPoint",rawEvent.get("endPoint"));
+        eventMap.put("sessionMetaData",rawEvent.get("sessionMetaData"));
         return eventMap;
     }
 
