@@ -12,11 +12,19 @@ public class EventRequest {
     private UserAgent userAgent;
     private String endPoint;
 
-    public EventRequest(long websiteId,String eventType, EventData eventData,String endPoint) {
+    //newly added ones->
+    private String screenResolution;
+    private String locale;
+
+
+    public EventRequest(long websiteId,String eventType, EventData eventData,String endPoint,String screenResolution,String locale) {
         this.eventType = eventType;
         this.eventData = eventData;
         this.websiteId = websiteId;
         this.endPoint = endPoint;
+        //new ones
+        this.locale=locale;
+        this.screenResolution=screenResolution;
     }
 
     public String getEventType() {
@@ -57,5 +65,13 @@ public class EventRequest {
 
     public String getEndPoint(){
         return this.endPoint;
+    }
+
+    public String getScreenResolution() {
+        return screenResolution;
+    }
+
+    public String getLocale() {
+        return locale;
     }
 }
