@@ -9,7 +9,7 @@ public class EventRequest {
     private EventData eventData;
     private Instant timeStamp;
     private String ipOrDns;
-    private String userAgent;
+    private UserAgent userAgent;
     private String endPoint;
 
     public EventRequest(long websiteId,String eventType, EventData eventData,String endPoint) {
@@ -35,7 +35,7 @@ public class EventRequest {
         return ipOrDns;
     }
 
-    public String getUserAgent() {
+    public UserAgent getUserAgent() {
         return userAgent;
     }
 
@@ -47,7 +47,7 @@ public class EventRequest {
         this.ipOrDns=ip;
     }
 
-    public void setUserAgent(String userAgent){
+    public void setUserAgent(UserAgent userAgent){
         this.userAgent=userAgent;
     }
 
