@@ -1,6 +1,7 @@
 package com.pranavv51.event_processor_service.service;
 
 import com.pranavv51.event_processor_service.DTO.Location;
+import com.pranavv51.event_processor_service.service.datacleaner.CheckOnSessionMetaData;
 import com.pranavv51.event_processor_service.service.datacleaner.ClassifyBasedOnGeoIP;
 import com.pranavv51.event_processor_service.service.datacleaner.NullValuesChecker;
 import org.slf4j.Logger;
@@ -22,6 +23,10 @@ public class EventProcessorService {
 
     @Autowired
     private ClassifyBasedOnGeoIP classifyBasedOnGeoIP;
+
+    @Autowired
+    private CheckOnSessionMetaData checkOnSessionMetaData;
+
 
     private Logger logger = LoggerFactory.getLogger(EventProcessorService.class);
 
@@ -58,6 +63,9 @@ public class EventProcessorService {
         Location locationBasedOnIp = classifyBasedOnGeoIP.getTheGeoLocationOfIp(eventMap.get("ipOrDns").toString());
 
         eventMap.put("Location",locationBasedOnIp);
+
+        //processing the session-meta-data
+        eventMap.put("sessionMetaData",checkOnSessionMetaData.processTheSessionMetadata(eventMap));
 
         return eventMap ;
     }

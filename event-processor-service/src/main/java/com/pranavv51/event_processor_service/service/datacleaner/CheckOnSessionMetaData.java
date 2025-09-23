@@ -10,7 +10,7 @@ import java.util.Map;
 public class CheckOnSessionMetaData {
 
     //TODO
-    private Map<String,Object> processTheSessionMetadata(Map<String,Object> clickstreamEvent){
+    public SessionMetaData processTheSessionMetadata(Map<String,Object> clickstreamEvent){
         var sessionMetaData = (SessionMetaData) clickstreamEvent.get("sessionMetaData");
         if(sessionMetaData.getSessionId()==null){
             sessionMetaData.setSessionId("invalid");
@@ -25,7 +25,7 @@ public class CheckOnSessionMetaData {
             sessionMetaData.setReferrer("www.google.com/");
         }
         clickstreamEvent.put("sessionMetaData",sessionMetaData);
-        return clickstreamEvent;
+        return sessionMetaData;
     }
 
 
