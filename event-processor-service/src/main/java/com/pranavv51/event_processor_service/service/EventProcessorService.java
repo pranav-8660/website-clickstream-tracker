@@ -58,14 +58,17 @@ public class EventProcessorService {
 
         //processedAt timestamp->
         eventMap.put("processedAt",Instant.now());
+        logger.info("Added a processedAt timestamp to: "+rawEvents);
 
         // classify based on location
         Location locationBasedOnIp = classifyBasedOnGeoIP.getTheGeoLocationOfIp(eventMap.get("ipOrDns").toString());
 
         eventMap.put("Location",locationBasedOnIp);
+        logger.info("Processed the location details of: "+rawEvents);
 
         //processing the session-meta-data
         eventMap.put("sessionMetaData",checkOnSessionMetaData.processTheSessionMetadata(eventMap));
+        logger.info("Processed the session-metadata of: "+rawEvents);
 
         return eventMap ;
     }
